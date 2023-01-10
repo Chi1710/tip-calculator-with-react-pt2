@@ -1,0 +1,52 @@
+.gradient {
+    height: 100vh;
+    background: rgba(34,193,195,1);
+    background: linear-gradient(
+        0deg, rgba(34,193,195,1) 0%, 
+        rgba(253,187,45,1) 
+        100%);
+    background-size: cover;
+}
+
+.title {
+   text-align: center;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.container {
+    background-color: aliceblue;
+    width: 450px;
+    padding: 40px 40px;
+    border-radius: 12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 30px 50px rgba(34,193,195,1);
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0;
+}
+
+.wrapper .dollarsign{
+    position: absolute;    
+    left: 275px;
+}
+
+input[type="range"]{
+    width: 50%;
+    cursor: pointer;
+    accent-color: rgb(249, 194, 77);
+
+}
+
+input[type="number"]{
+    cursor: pointer;
+    padding-left: 10px;
+}

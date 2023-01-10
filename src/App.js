@@ -4,20 +4,20 @@ import './App.css';
 
 function App() {
 
-  const[bill, setBill] = useState(0);
+  const[bill, setBill] = useState();
   const[totalTip, setTotalTip] = useState(0);
-  const[numOfPpl, setNumOfPeople] = useState(0);
-  const[tipPercentage, setTipPercentage] = useState(10);
+  const[numOfPpl, setNumOfPeople] = useState(1);
+  const[tipPercentage, setTipPercentage] = useState(0);
   const[splitTip, setSplitTip] = useState(0);
   const[splitTotal, setSplitTotal] = useState(0);
 
   function calculatorTip() {
-    const result = (bill * (tipPercentage/100)).toFixed(2)
+    const result = ((bill *tipPercentage)/100).toFixed(2)
     return setTotalTip(result);
   }
 
   function calculatorSplitTip() {
-    const result = (totalTip/numOfPpl).toFixed(2)
+    const result = (totalTip/numOfPpl).toFixed(2);
     return setSplitTip(result); 
   }
 
@@ -31,36 +31,48 @@ function App() {
   }, [bill, tipPercentage, numOfPpl])
  
   return (
-    <div>
+    <div className='gradient'>
+      <div className='container'>
+        <div className='title'>
       <h1>Tip Calculator</h1>
+      </div>
 
+      <div className='wrapper'>
       <label>Bill</label>
-      <span>$</span>
+      <span className='dollarsign'>$</span>
       <input type="number" 
             placeholder='0.00' 
             min="0"
             value={bill}
             onChange={ e => setBill(e.target.value)}
         />
+        <span className='dollarsign'>$</span>
+      </div>
 
+      <div className='wrapper'>
         <label>Tip</label>
-        <span>$</span>
+        <span className='dollarsign'>$</span>
         <input type="number" 
-            placeholder='0' 
+            placeholder='$0' 
             min="0"
             value={totalTip}
         />
+        <span className='dollarsign'>$</span>
+        </div>
 
+        <div className='wrapper'>
         <label>Tip Percentage</label>
         <span>{tipPercentage}%</span>
         <input type="range"
                 placeholder='0'
-                min="10"
+                min="0"
                 max="50"
                 value={tipPercentage}
                 onChange = { e => setTipPercentage(e.target.value)}
                 />
+        </div>
 
+        <div className='wrapper'>
         <label>Number of People</label>
         <span>{numOfPpl}</span>
         <input type="range"
@@ -70,13 +82,18 @@ function App() {
               value={numOfPpl}
               onChange = { e => setNumOfPeople(e.target.value)}
               />
+        </div>      
 
+        <div className='wrapper'>
         <label>Tip Per Person</label>
-        <span>{splitTip}</span>
+        <span>$ {splitTip}</span>
+        </div>
 
+        <div className='wrapper'>
         <label>Total Per Person</label>
-        <span>{splitTotal}</span>
-
+        <span>$ {splitTotal}</span>
+        </div>
+        </div>
     </div>
   );
 }
