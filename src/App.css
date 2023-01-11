@@ -36,8 +36,9 @@
 
 .wrapper .dollarsign{
     position: absolute;    
-    left: 275px;
+    left: 305px;
 }
+
 
 input[type="range"]{
     width: 50%;
@@ -48,5 +49,8 @@ input[type="range"]{
 
 input[type="number"]{
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 5px;
+    height: 20px;
+    width: 120px;
+    font-size: 17px;
 }

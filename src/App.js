@@ -4,30 +4,30 @@ import './App.css';
 
 function App() {
 
-  const[bill, setBill] = useState();
+  const[bill, setBill] = useState(0);
+  const[tip, setTip] = useState(0);
   const[totalTip, setTotalTip] = useState(0);
   const[numOfPpl, setNumOfPeople] = useState(1);
   const[tipPercentage, setTipPercentage] = useState(0);
-  const[splitTip, setSplitTip] = useState(0);
-  const[splitTotal, setSplitTotal] = useState(0);
+  const[totalBill, setTotalBill] = useState(0)
 
   function calculatorTip() {
-    const result = ((bill *tipPercentage)/100).toFixed(2)
-    return setTotalTip(result);
+    let result = (((bill * tipPercentage)/100))/parseInt(numOfPpl)
+    return setTip(result.toFixed(2));
   }
 
-  function calculatorSplitTip() {
-    const result = (totalTip/numOfPpl).toFixed(2);
-    return setSplitTip(result); 
+  function calculatorTotal() {
+    let total = parseFloat(bill) + parseFloat(tip)
+    return setTotalBill(total.toFixed(2)); 
   }
 
-  function calculatorSplitTotal() {
-    const result = ((bill/numOfPpl) + (totalTip/numOfPpl)).toFixed(2)
-    return setSplitTotal(result); 
+  function calculatorTotalTip() {
+    let result = parseFloat(((bill * tipPercentage)/100))
+    return setTotalTip(result.toFixed(2));
   }
 
   useEffect( ()=> {
-    calculatorTip(); calculatorSplitTip(); calculatorSplitTotal()
+    calculatorTip(); calculatorTotal();calculatorTotalTip()
   }, [bill, tipPercentage, numOfPpl])
  
   return (
@@ -46,18 +46,11 @@ function App() {
             value={bill}
             onChange={ e => setBill(e.target.value)}
         />
-        <span className='dollarsign'>$</span>
       </div>
 
       <div className='wrapper'>
         <label>Tip</label>
-        <span className='dollarsign'>$</span>
-        <input type="number" 
-            placeholder='$0' 
-            min="0"
-            value={totalTip}
-        />
-        <span className='dollarsign'>$</span>
+        <span>$ {totalTip}</span>
         </div>
 
         <div className='wrapper'>
@@ -86,12 +79,12 @@ function App() {
 
         <div className='wrapper'>
         <label>Tip Per Person</label>
-        <span>$ {splitTip}</span>
+        <span>$ {tip}</span>
         </div>
 
         <div className='wrapper'>
         <label>Total Per Person</label>
-        <span>$ {splitTotal}</span>
+        <span>$ {totalBill}</span>
         </div>
         </div>
     </div>
