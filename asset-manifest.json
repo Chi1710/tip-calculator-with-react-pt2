@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tip-calculator-with-react-pt2/static/css/main.d656a8d7.css",
+    "main.js": "/tip-calculator-with-react-pt2/static/js/main.2b37223c.js",
+    "index.html": "/tip-calculator-with-react-pt2/index.html",
+    "main.d656a8d7.css.map": "/tip-calculator-with-react-pt2/static/css/main.d656a8d7.css.map",
+    "main.2b37223c.js.map": "/tip-calculator-with-react-pt2/static/js/main.2b37223c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d656a8d7.css",
+    "static/js/main.2b37223c.js"
+  ]
+}
