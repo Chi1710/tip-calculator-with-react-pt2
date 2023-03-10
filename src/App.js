@@ -12,12 +12,12 @@ function App() {
   const[totalBill, setTotalBill] = useState(0)
 
   function calculatorTip() {
-    let result = (((bill * tipPercentage)/100))/parseInt(numOfPpl)
+    let result = (((parseFloat(bill) * tipPercentage)/100))/parseInt(numOfPpl)
     return setTip(result.toFixed(2));
   }
 
   function calculatorTotal() {
-    let total = parseFloat(bill) + parseFloat(tip)
+    let total = (parseFloat(bill) + parseFloat(totalTip)) / parseInt(numOfPpl)
     return setTotalBill(total.toFixed(2)); 
   }
 
@@ -28,7 +28,7 @@ function App() {
 
   useEffect( ()=> {
     calculatorTip(); calculatorTotal();calculatorTotalTip()
-  }, [bill, tipPercentage, numOfPpl])
+  }, [bill, totalTip, numOfPpl, tipPercentage])
  
   return (
     <div className='gradient'>
