@@ -27,7 +27,9 @@ function App() {
   }
 
   useEffect( ()=> {
-    calculatorTip(); calculatorTotal();calculatorTotalTip()
+    calculatorTip(); 
+    calculatorTotal();
+    calculatorTotalTip();
   }, [bill, totalTip, numOfPpl, tipPercentage])
  
   return (
