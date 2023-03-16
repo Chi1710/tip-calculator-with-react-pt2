@@ -1,7 +1,7 @@
 OverView: 
 User can input Bill, set tip percentage and Number of people to calculate total tip, tip per person and total per person.
 
-![]/(TipCalculatorWithReactPt2.gif)
+![](TipCalculatorWithReactPt2.gif)
 
 This WebApp is baseoff on the tip-calculator-with-react and tip-calculator-js.
 Language used : Javascript, React.js, CSS.
