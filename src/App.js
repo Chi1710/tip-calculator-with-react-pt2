@@ -4,29 +4,43 @@ import './App.css';
 
 function App() {
 
-  const[bill, setBill] = useState(0);
+  const [bill, setBill] = useState(0);
   const[tip, setTip] = useState(0);
   const[totalTip, setTotalTip] = useState(0);
   const[numOfPpl, setNumOfPeople] = useState(1);
-  const[tipPercentage, setTipPercentage] = useState(0);
+  const[tipPercentage, setTipPercentage] = useState(20);
   const[totalBill, setTotalBill] = useState(0)
 
-  function calculatorTip() {
-    let result = (((parseFloat(bill) * tipPercentage)/100))/parseInt(numOfPpl)
-    return setTip(result.toFixed(2));
-  }
+  // function calculatorTip() {
+  //   let result = (((parseFloat(bill) * tipPercentage)/100))/parseInt(numOfPpl)
+  //   return setTip(result.toFixed(2));
+  // }
 
-  function calculatorTotal() {
-    let total = (parseFloat(bill) + parseFloat(totalTip)) / parseInt(numOfPpl)
-    return setTotalBill(total.toFixed(2)); 
-  }
+  // function calculatorTotal() {
+  //   let total = (parseFloat(bill) + parseFloat(totalTip)) / parseInt(numOfPpl)
+  //   return setTotalBill(total.toFixed(2)); 
+  // }
 
-  function calculatorTotalTip() {
-    let result = parseFloat(((bill * tipPercentage)/100))
-    return setTotalTip(result.toFixed(2));
-  }
+  // function calculatorTotalTip() {
+  //   let result = parseFloat(((bill * tipPercentage)/100))
+  //   return setTotalTip(result.toFixed(2));
+  // }
 
   useEffect( ()=> {
+    function calculatorTip() {
+      let result = (((parseFloat(bill) * tipPercentage)/100))/parseInt(numOfPpl)
+      return setTip(result.toFixed(2));
+    }
+  
+    function calculatorTotal() {
+      let total = (parseFloat(bill) + parseFloat(totalTip)) / parseInt(numOfPpl)
+      return setTotalBill(total.toFixed(2)); 
+    }
+  
+    function calculatorTotalTip() {
+      let result = parseFloat(((bill * tipPercentage)/100))
+      return setTotalTip(result.toFixed(2));
+    }
     calculatorTip(); 
     calculatorTotal();
     calculatorTotalTip();
@@ -80,7 +94,7 @@ function App() {
         </div>      
 
         <div className='wrapper'>
-        <label>Tip Per Person</label>
+        <label>Tip Per Person</label> 
         <span>$ {tip}</span>
         </div>
 
